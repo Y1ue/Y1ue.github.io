@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+	<head>
+		<title>服务器推荐</title>
+		<link rel="icon" href="../../static/img/favicon.jpg">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			.left-align{
+				text-align: left;
+				font-size: 24px;
+			}
+			p {
+				text-align: justify;   
+				text-indent: 2em;   
+			}	
+			.image-effect{
+				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+				border-radius: 15px;
+				text-align: center;
+			}	
+			.code-block {
+				text-align: left;
+				background-color: #f4f4f4; /* 背景色 */
+				padding: 10px; /* 内边距 */
+				border: 1px solid #ccc; /* 边框 */
+				border-radius: 4px; /* 圆角 */
+				overflow-x: auto; /* 横向滚动 */
+				font-family: monospace; /* 使用等宽字体 */
+			}	
+		</style>
+		<link rel="stylesheet" href="../../static/css/main.css" />
+	</head>
+
+	<body class="is-preload">
+		<div id="zyyo-loading">
+			<div id="zyyo-loading-center"></div>
+		</div>
+		<!-- Main -->
+			<div id="main">
+				<header>
+					<h1 style="font-size: 48px;">
+						服务器推荐 
+					</h1>
+				</header>
+				
+				<footer class="major container medium">
+					<p>首先声明，这个网站我觉得好用才推荐给各位，没有打广告的意思。</p>
+					<p>服务器租用网站：<a href="https://www.autodl.com" target="_blank">https://www.autodl.com</a></p>
+					<p>在人工智能飞速发展的今天，深度学习发挥着重要的作用。有些同学想做深度学习方面的研究，却苦于自己电脑的GPU算力不行，甚至电脑没有GPU。那么这个服务器租用平台可以解你的燃眉之急，同时也推荐给其他深度学习爱好者。（租用不是长久之计，加入课题组长期使用才是正道）</p>
+					<p>这里的价格相对比较便宜，，4090的价格也就是每小时两元左右，GPU的种类也很多，你也可以进行<b>学生认证</b>，享受一年的会员价格，操作方法：<a href="https://www.autodl.com/docs/student/" target="_blank">https://www.autodl.com/docs/student/</a></p>
+					<img src="renzheng.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<h1 class="left-align">如何租用服务器？</h1>
+					<p>1.登录进入平台页面</p>
+					<p>2.依次点击<b>控制台——容器实例——租用新实例</b></p>
+					<img src="step2.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>3.计费方式选择<b>按量计费</b>，然后根据自己的需求选择GPU，建议选择<b>空闲GPU较多</b>的租用（如果你的实例关机的话，你的GPU别人也是可以用的，等你想再开机使用时，GPU数量可能不足）</p>
+					<img src="step3.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>4.根据需求扩容（免费50GB），配置环境。</p>
+					<img src="step4.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>5.点击<b>立即创建</b>，即完成创建。</p>
+					<img src="step5.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<h1 class="left-align">注意：</h1>
+					<p>1.计费规则为开机满1小时才扣费，所以当你创建实例的时候是不会扣费的。</p>
+					<P>2.如果关机15天，则自动释放资源。</P>
+					<P>3.在不使用GPU的情况下，建议使用<b>无卡模式开机</b>，这样能帮你节省一笔费用。</P>
+					<img src="attention1.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<img src="wuka.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<h1 class="left-align">上传数据</h1>
+					<P>建议使用xftp，无卡开机模式（省钱）。</P>
+					<h1 class="left-align">Xftp连接服务器：</h1>
+					<P>1.开机获得<b>登录指令和密码</b></P>
+					<img src="xftp1.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<P>假设登录指令是：ssh -p 12345 root@rxxxxn-0.autodl.com</P>
+					<P>那么下图的主机和端口号分别是：</P>
+					<p>用户名：root</p>
+					<p>主机：rxxxxn-0.autodl.com（@后面的所有内容）</p>
+					<p>端口：12345</p>
+					<img src="xftp2.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>2.完成后点<b>确定</b>，然后<b>连接</b>即可</p>
+					<img src="xftp3.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>3.数据传输</p>
+					<p>服务器的数据盘是/root/autodl-tmp，<b>建议</b>将代码和数据集都放在这里。</p>
+					<img src="xftp4.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>上传、下载数据的方式：直接拖动文件。</p>
+					<p>左边拖到右边：本地->Autodl（上传）</p>
+					<p>右边拖到左边：Autodl->本地（下载）</p>
+					<h1 class="left-align">Pycharm连接服务器</h1>
+					<p>本地IDE操作远程服务器会带来很大的便利，你在本地编写代码的同时，<b>服务器端也会实时更新。</b></p>
+					<p>1.必须是<b>Pycharm专业版</b>，获取方式就各显神通了。</p>
+					<p>2.点击<b>文件—设置</b></p>
+					<img src="py1.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>3.找到<b>项目——python解释器</b>选项，再点击<b>添加解释器——SSH</b></p>
+					<img src="py2.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>4.将刚刚的主机、用户名、端口号输入，点击<b>下一步</b>。</p>
+					<img src="py3.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>5.输入密码点击<b>下一步</b></p>
+					<img src="py4.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>6.点击<b>系统解释器，编辑同步文件夹</b>。编辑同步文件夹是将本地项目的根目录与服务器对应的文件夹（建议选在/root/autodl-tmp下面）同步。配置好后点击<b>创建</b>即可。初次创建，文件上传时间有些慢。</p>
+					<img src="py5.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<h1 class="left-align">运行程序的几种方式</h1>
+					<p>1.右键点击运行。这是Pycharm中最常用的方式。</p>
+					<img src="yx1.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>2.使用pycharm中的终端命令行。服务器是Linux系统，<b>命令行操作是不可避免的</b>。</p>
+					<p>点击<b>终端</b>，选择你的服务器，然后输入指令即可。</p>
+					<img src="yx2.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>3.使用自带的<b>jupyterLab</b>。我习惯于在Pycharm里编写程序，然后在jupyterLab里面运行。因为Pycharm很占用电脑资源，jupyterLab可以让我在程序运行的时候做一些其他事情。</p>
+					<p>点击<b>jupyterLab</b>，然后点击<b>终端</b>，在里面进行命令行操作。</p>
+					<img src="yx3.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<img src="yx4.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<img src="yx5.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<h1 class="left-align">如何查看Tensorboard？</h1>
+					<p>1.点击<b>实例监控</b></p>
+					<img src="te1.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>2.点击<b>Tensorboard</b>。如果出现以下内容，是因为系统默认Tensorboard在/root/tf-logs目录，但你没有将内容放在其中。</p>
+					<img src="te2.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<p>3.你也可以自己<b>修改</b>Tensorboard目录位置。</p>
+					<p>首先<b>结束默认启动的Tensorboard进程</b>。</p>
+					<div class="code-block">
+						ps -ef | grep tensorboard | awk '{print $2}' | xargs kill -9
+					</div>						
+					<p>然后再<b>启动</b>Tensorboard进程</p>
+					<div class="code-block">
+						tensorboard --port 6007 --logdir /root/autodl-tmp/aanet/checkPoint
+					</div>
+					<p>其中/root/autodl-tmp/aanet/checkPoint是你的Tensorboard保存目录，<b>根据需求自行修改</b>。</p>
+					<p>完成后<b>刷新页面</b>即可</p>
+					<img src="te3.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<img src="te4.png" alt="Oops?" style="width: 100%; height: auto;" class="image-effect">
+					<ul class="actions special">
+						<li><a href="../zytj.html" class="button">返回</a></li>
+					</ul>
+				</footer>
+			</div>
+	</body>
+
+</html>
