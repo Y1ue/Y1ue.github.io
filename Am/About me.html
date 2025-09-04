@@ -29,6 +29,37 @@
 				margin-left: auto;
 				margin-right: 40px; 
 			}
+			@media screen and (max-width: 768px) {
+				#main {
+					padding: 0 15px; /* 减小移动端的整体内边距 */
+				}
+				
+				.left-align {
+					padding: 0 15px; /* 减小标题的左右内边距 */
+					font-size: 20px; /* 适当减小标题字体 */
+				}
+				
+				p {
+					text-indent: 1.5em; /* 减小移动端文本缩进 */
+					padding: 0 5px; /* 给段落添加少量内边距 */
+				}
+				
+				.edu-logo {
+					width: 80px; /* 减小移动端学校logo大小 */
+					margin-right: 15px; /* 减小右侧外边距 */
+				}
+				
+				/* 调整教育经历的布局 */
+				div[style*="display: flex"] {
+					margin: 10px 0; /* 减小上下间距 */
+				}
+				
+				div[style*="display: flex"] span {
+					text-indent: 1em; /* 减小移动端文本缩进 */
+					font-size: 16px; /* 减小字体大小 */
+					margin-right: 10px;
+				}
+			}
 		</style>
 		<link rel="stylesheet" href="../static/css/main.css" />
 	</head>
@@ -77,4 +108,5 @@
 
 
 </html>
+
 
