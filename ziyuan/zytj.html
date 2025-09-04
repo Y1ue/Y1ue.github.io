@@ -15,11 +15,56 @@
 			.left-align{
 				text-align: left;
 				font-size: 24px;
+				padding: 0 40px;
 			}
 			p {
 				text-align: justify;   
 				text-indent: 2em;   
-			}			
+				line-height: 1.8;
+			}		
+			.resource-item {
+				display: flex;
+				align-items: center;
+				padding: 1.5rem 0;
+				border-bottom: 1px solid #e0e0e0;
+				padding-left: 4em;
+			}
+			.resource-item:last-child {
+				border-bottom: none;
+			}
+			.resource-img {
+				width: 80px;
+                height: 80px;
+                margin-right: 1.5rem;
+                border-radius: 8px;
+                object-fit: cover;
+                background-color: #f0f0f0;
+                overflow: hidden;
+				flex-shrink: 0;
+			}
+			.resource-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+			.resource-content {
+				flex: 1;
+				
+			}
+			.resource-title {
+				font-size: 1.2rem;
+				margin-bottom: 0.5rem;
+			}
+			.resource-desc {
+				color: #666;
+				margin: 0;
+				text-indent: 0;
+			}
+			.resources-container {
+				width: 100%;
+				max-width: 800px;
+				margin: 0 auto;
+			}	
 		</style>
 		<link rel="stylesheet" href="../static/css/main.css" />
 	</head>
@@ -37,12 +82,48 @@
 				</header>
 				
 				<footer class="major container medium">
-					<p>邮箱附件下载工具：<a href="https://www.senu.email/index.html" target="_blank">https://www.senu.email/index.html</a></p>
-					<p><a href="fuwuqi/fwqtj.html" target="_self">深度学习服务器租用推荐</a></p>
-					<p>持续更新...</p>
-					<ul class="actions special">
-						<li><a href="../index.html" class="button">返回主页</a></li>
-					</ul>
+					<div class="resources-container">
+						<div class="resource-item">
+							<div class="resource-img">
+								<img src="img/email.png" alt="邮箱附件下载工具">
+							</div>
+							<div class="resource-content">
+								<div class="resource-title">
+									<a  href="https://github.com/Illusionna/NEUmail-Homepage" target="_blank">邮箱附件下载工具</a>
+								</div>
+							</div>
+						</div>
+						<div class="resource-item">
+							<div class="resource-img">
+								<img src="img/serve.png" alt="服务器租用推荐">
+							</div>
+							<div class="resource-content">
+								<div class="resource-title">
+									<a  href="fuwuqi/fwqtj.html" target="_self">深度学习服务器租用推荐</a>
+								</div>
+							</div>
+						</div>
+						<div class="resource-item">
+							<div class="resource-img">
+								<img src="img/load.png" alt="文件传输工具">
+							</div>
+							<div class="resource-content">
+								<div class="resource-title">
+									<a  href="https://github.com/Illusionna/LocalTransfer" target="_blank">文件传输工具</a>
+								</div>
+							</div>
+						</div>
+						<div class="resource-item">
+							<div class="resource-img">
+								<img src="img/updata.png" alt="持续更新">
+							</div>
+							<div class="resource-content">
+								<div class="resource-title">
+									<p style="text-indent: 0; text-align: center;">持续更新...</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</footer>
 			</div>
 	</body>
