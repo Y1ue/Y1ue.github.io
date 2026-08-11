@@ -51,14 +51,16 @@ function pop(imageURL) {
 
 var tc = document.getElementsByClassName('tc');
 var tc_main = document.getElementsByClassName('tc-main');
-tc[0].addEventListener('click', function (event) {
-    pop();
-});
-tc_main[0].addEventListener('click', function (event) {
-    event.stopPropagation();
-});
-
-
+if (tc[0]) {
+    tc[0].addEventListener('click', function (event) {
+        pop();
+    });
+}
+if (tc_main[0]) {
+    tc_main[0].addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+}
 
 function setCookie(name, value, days) {
     var expires = "";
@@ -85,142 +87,56 @@ function getCookie(name) {
     return null;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
-
-
-
-
-
 
     var html = document.querySelector('html');
     var themeState = getCookie("themeState") || "Light";
     var tanChiShe = document.getElementById("tanChiShe");
-
-
-
-
-
+    var Checkbox = document.getElementById('myonoffswitch');
 
     function changeTheme(theme) {
-        tanChiShe.src = "./static/svg/snake-" + theme + ".svg";
-        html.dataset.theme = theme;
+        if (tanChiShe) {
+            tanChiShe.src = "./static/svg/snake-" + theme + ".svg";
+        }
+        if (html) {
+            html.dataset.theme = theme;
+        }
         setCookie("themeState", theme, 365);
         themeState = theme;
     }
 
+    if (Checkbox) {
+        Checkbox.addEventListener('change', function () {
+            if (themeState == "Dark") {
+                changeTheme("Light");
+            } else if (themeState == "Light") {
+                changeTheme("Dark");
+            } else {
+                changeTheme("Dark");
+            }
+        });
 
-
-
-
-
-
-    var Checkbox = document.getElementById('myonoffswitch')
-    Checkbox.addEventListener('change', function () {
         if (themeState == "Dark") {
-            changeTheme("Light");
-        } else if (themeState == "Light") {
-            changeTheme("Dark");
-        } else {
-            changeTheme("Dark");
+            Checkbox.checked = false;
         }
-    });
-
-
-
-    if (themeState == "Dark") {
-        Checkbox.checked = false;
     }
 
     changeTheme(themeState);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-    var fpsElement = document.createElement('div');
-    fpsElement.id = 'fps';
-    fpsElement.style.zIndex = '10000';
-    fpsElement.style.position = 'fixed';
-    fpsElement.style.left = '0';
-    document.body.insertBefore(fpsElement, document.body.firstChild);
-
-    var showFPS = (function () {
-        var requestAnimationFrame = window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.oRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            function (callback) {
-                window.setTimeout(callback, 1000 / 60);
-            };
-
-        var fps = 0,
-            last = Date.now(),
-            offset, step, appendFps;
-
-        step = function () {
-            offset = Date.now() - last;
-            fps += 1;
-
-            if (offset >= 1000) {
-                last += offset;
-                appendFps(fps);
-                fps = 0;
-            }
-
-            requestAnimationFrame(step);
-        };
-
-        appendFps = function (fpsValue) {
-            fpsElement.textContent = 'FPS: ' + fpsValue;
-        };
-
-        step();
-    })();
-    
-    
-    
-    //pop('./static/img/tz.jpg')
-    
-    
-    
 });
 
-
-
+var topBtn = document.querySelector('.top-btn');
+if (topBtn) {
+    topBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 var pageLoading = document.querySelector("#zyyo-loading");
-window.addEventListener('load', function() {
-    setTimeout(function () {
-        pageLoading.style.opacity = '0';
-    }, 100);
-});
-
+if (pageLoading) {
+    window.addEventListener('load', function() {
+        setTimeout(function () {
+            pageLoading.style.opacity = '0';
+        }, 100);
+    });
+}

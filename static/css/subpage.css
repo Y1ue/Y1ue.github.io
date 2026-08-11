@@ -1,0 +1,681 @@
+/* ============================================================
+   subpage.css — Unified stylesheet for all sub-pages
+   Replaces main.css (HTML5 UP "Directive" template).
+   Shares the homepage's CSS custom property theme system.
+   ============================================================ */
+
+@import url("./root.css");
+
+/* ---------- Fonts (same as homepage style.css) ---------- */
+@font-face {
+    font-family: "body-font";
+    src: url(../fonts/Ubuntu-Regular.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "title-font";
+    src: url(../fonts/Pacifico-Regular.ttf);
+    font-display: swap;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "body-font", "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--main_bg_color);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    line-height: 1.8;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- Loading screen (migrated from style.css) ---------- */
+#zyyo-loading {
+    background: radial-gradient(white, #d8eaff);
+    background-size: 100%;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+#zyyo-loading-center {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    border-radius: 50%;
+    background: #472eff;
+    animation: loading-zoom 1s linear infinite;
+}
+
+@keyframes loading-zoom {
+    0%   { transform: scale(0); opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+/* ---------- Background blur overlay (matches homepage) ---------- */
+.zyyo-filter {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--back_filter_color);
+    backdrop-filter: blur(var(--back_filter));
+    -webkit-backdrop-filter: blur(var(--back_filter));
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+/* ---------- Top navigation bar ---------- */
+.subpage-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 850px;
+    margin: 20px auto 0 auto;
+    padding: 12px 25px;
+    background: var(--item_bg_color);
+    backdrop-filter: blur(var(--card_filter));
+    -webkit-backdrop-filter: blur(var(--card_filter));
+    border-radius: 15px;
+}
+
+.subpage-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.subpage-nav-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.6);
+}
+
+.subpage-nav-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--item_left_title_color);
+}
+
+.subpage-nav-right a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--item_hover_color);
+    color: var(--item_left_title_color);
+    font-size: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.subpage-nav-right a:hover {
+    transform: translateY(-1px);
+    background: var(--item_bg_color);
+    text-decoration: none;
+}
+
+/* ---------- Site brand (top gradient title, links to home) ---------- */
+.site-brand {
+    text-align: center;
+    padding: 60px 0 0 0;
+}
+.site-brand a {
+    font-family: "title-font";
+    font-size: 60px;
+    font-weight: 800;
+    background: linear-gradient(120deg, #bd34fe, #4ade80 30%, #41d1ff 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    background-position: 0%;
+    animation: gradientShift 10s ease-in-out infinite;
+    text-decoration: none;
+    display: inline-block;
+}
+.site-brand a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Page header ---------- */
+.subpage-hero {
+    max-width: 850px;
+    margin: 25px auto 0 auto;
+    padding: 0 25px;
+}
+
+.subpage-hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(120deg, #bd34fe, #4ade80 30%, #41d1ff 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    background-position: 0%;
+    font-family: "title-font";
+    animation: gradientShift 10s ease-in-out infinite;
+    line-height: 1.3;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 100%; }
+    25%  { background-position: 50%; }
+    50%  { background-position: 0%; }
+    75%  { background-position: 50%; }
+    100% { background-position: 100%; }
+}
+
+.subpage-hero .page-time {
+    font-size: 14px;
+    color: #ffffff;
+    margin-top: 8px;
+}
+
+.subpage-hero .subtitle {
+    font-size: 16px;
+    color: var(--item_left_text_color);
+    margin-top: 6px;
+}
+
+/* ---------- Content card ---------- */
+.content-card {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 40px 60px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Section titles ---------- */
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-align: left;
+    margin: 35px 0 15px 0;
+    padding-left: 15px;
+    border-left: 4px solid #181f1c;
+    line-height: 1.4;
+}
+.section-title:first-child {
+    margin-top: 0;
+}
+
+/* ---------- Paragraphs ---------- */
+.content-card p {
+    text-align: justify;
+    text-indent: 2em;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* ---------- Inline accent text ---------- */
+.accent-text {
+    color: var(--purple_text_color);
+    font-weight: 700;
+}
+.accent-bg {
+    background: var(--text_bg_color);
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-size: 0.95em;
+}
+
+/* ---------- Tables ---------- */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.content-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.content-card thead th {
+    background: var(--text_bg_color);
+    color: #333;
+    font-weight: 700;
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 2px solid rgba(0,0,0,0.08);
+}
+
+.content-card tbody td,
+.content-card tbody th {
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    color: #333;
+}
+
+.content-card tbody tr:nth-child(even) {
+    background: rgba(0,0,0,0.02);
+}
+
+.content-card tbody tr:hover {
+    background: var(--item_hover_color);
+}
+
+/* ---------- Images ---------- */
+.image-card {
+    display: block;
+    width: auto;
+    max-width: 90%;
+    max-height: 500px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.12);
+    border: 4px solid rgba(255,255,255,0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: contain;
+}
+.image-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 5px 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+figure {
+    margin: 25px 0;
+    text-align: center;
+}
+figure img {
+    margin: 0 auto;
+}
+figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    text-indent: 0;
+}
+
+/* ---------- Code blocks ---------- */
+.code-block {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* ---------- Top link ---------- */
+.content-card .top-link {
+    text-align: center;
+    text-indent: 0;
+    font-size: 14px;
+}
+
+/* ---------- Back button ---------- */
+.back-button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    background: #525455;
+}
+.back-button:hover {
+    background: #232324;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ---------- Resource list (for zytj.html) ---------- */
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: background 0.2s ease;
+    text-indent: 0;
+}
+.resource-item:last-child {
+    border-bottom: none;
+}
+.resource-item:hover {
+    background: rgba(0,0,0,0.015);
+}
+
+.resource-item-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.resource-item-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resource-item-info {
+    flex: 1;
+}
+.resource-item-info .name {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 4px;
+    text-indent: 0;
+}
+.resource-item-info .name a {
+    color: #333;
+    text-decoration: none;
+}
+.resource-item-info .name a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+.resource-item-info .desc {
+    font-size: 14px;
+    color: var(--item_left_text_color);
+    margin: 0;
+    text-indent: 0;
+}
+
+/* ---------- Link card list (for Experience card.html nav) ---------- */
+.link-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+.link-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: #090909;
+}
+.link-card .num {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    border: 1px solid rgba(0,0,0,0.08);
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+.link-card .label {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+}
+.link-card .arrow {
+    color: #aaa;
+    font-size: 18px;
+}
+
+/* ---------- Tag chips ---------- */
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+.tag-chip {
+    display: inline-block;
+    padding: 5px 14px;
+    background: var(--left_tag_item);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #333;
+}
+
+/* ---------- Education logos (About me.html) ---------- */
+.edu-row {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    gap: 15px;
+}
+.edu-row span {
+    font-size: 19px;
+    text-indent: 0;
+    flex: 1;
+}
+.edu-logo {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 8px;
+}
+
+/* ---------- Stats row (Experience card.html) ---------- */
+.stats-list p {
+    text-indent: 0;
+    margin-bottom: 6px;
+}
+.stats-list strong {
+    color: var(--purple_text_color);
+}
+
+/* ---------- Game image grid (game.html) ---------- */
+.game-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 15px 0;
+}
+.game-item h3 {
+    font-size: 20px;
+    color: var(--item_left_title_color);
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 600;
+}
+
+/* ---------- Page footer ---------- */
+.subpage-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--footer_text_color);
+    font-size: 13px;
+    max-width: 850px;
+    margin: 0 auto 30px auto;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .subpage-nav,
+    .subpage-hero,
+    .content-card {
+        margin-left: 15px;
+        margin-right: 15px;
+        border-radius: 12px;
+    }
+
+    .subpage-nav {
+        padding: 10px 18px;
+    }
+
+    .content-card {
+        padding: 25px 20px;
+    }
+
+    .site-brand a {
+        font-size: 40px;
+    }
+
+    .subpage-hero {
+        padding: 0 20px;
+    }
+
+    .subpage-hero h1 {
+        font-size: 32px;
+    }
+
+    .subpage-hero .page-time {
+        font-size: 13px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .image-card {
+        width: 100%;
+    }
+
+    .edu-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .edu-logo {
+        width: 80px;
+    }
+
+    .resource-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 500px) {
+    .site-brand a {
+        font-size: 32px;
+    }
+
+    .subpage-hero h1 {
+        font-size: 26px;
+    }
+
+    .subpage-hero .page-time {
+        font-size: 12px;
+    }
+
+    .content-card {
+        padding: 20px 15px;
+    }
+
+    .content-card p {
+        font-size: 15px;
+        text-indent: 1.5em;
+    }
+
+    .section-title {
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    .subpage-nav-title {
+        font-size: 15px;
+    }
+
+    .subpage-nav-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .back-button {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+
+    .code-block {
+        font-size: 12px;
+        padding: 12px 14px;
+    }
+}
