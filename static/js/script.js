@@ -122,6 +122,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     changeTheme(themeState);
+
+    // FPS counter
+    var fpsElement = document.createElement('div');
+    fpsElement.id = 'fps';
+    fpsElement.style.zIndex = '10000';
+    fpsElement.style.position = 'fixed';
+    fpsElement.style.left = '0';
+    fpsElement.style.top = '0';
+    fpsElement.style.color = '#fff';
+    fpsElement.style.background = 'rgba(0,0,0,0.5)';
+    fpsElement.style.padding = '2px 6px';
+    fpsElement.style.fontSize = '12px';
+    fpsElement.style.borderRadius = '0 0 4px 0';
+    document.body.insertBefore(fpsElement, document.body.firstChild);
+
+    var requestAnimationFrame = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+
+    var fps = 0, last = Date.now(), offset;
+
+    (function step() {
+        offset = Date.now() - last;
+        fps += 1;
+        if (offset >= 1000) {
+            last += offset;
+            fpsElement.textContent = 'FPS: ' + fps;
+            fps = 0;
+        }
+        requestAnimationFrame(step);
+    })();
 });
 
 var topBtn = document.querySelector('.top-btn');
